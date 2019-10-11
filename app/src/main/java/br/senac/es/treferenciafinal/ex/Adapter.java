@@ -1,7 +1,7 @@
 package br.senac.es.treferenciafinal.ex;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;

@@ -1,22 +1,55 @@
 package br.senac.es.treferenciafinal.model;
 
+import androidx.annotation.NonNull;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class Call {
+
+    @NonNull
     @Override
     public String toString() {
-        return "Chamado{" +
-                "dataAbertura=" + dataAbertura +
-                ", decricao='" + decricao + '\n' +
-                ", status='" + status + '\n' +
-                ", solucao='" + solucao + '\n' +'}';
+        return "Chamado: " +
+                " dataAbertura = " + dataAbertura +
+                ", descrição = '" + descricao + '\'' +
+                ", status = '" + status + '\'' +
+                ", solução = '" + solucao + '\'' +
+                '}';
     }
 
+    @SerializedName("id")
+    @Expose
     private int id;
+
+    @SerializedName("dataAbertura")
+    @Expose
     private Date dataAbertura;
-    private String decricao;
-    private String status;
+
+    @SerializedName("descricao")
+    @Expose
+    private String descricao;
+
+    private Enum status;
+
+    @SerializedName("solucao")
+    @Expose
     private String solucao;
+
+    public Call() {
+    }
+    public Call(int id, Date dataAbertura, String descricao, Enum status, String solucao) {
+        this.id = id;
+        this.dataAbertura = dataAbertura;
+        this.descricao = descricao;
+        this.status = status;
+        this.solucao = solucao;
+    }
+
+    public Call(long l, Enum sexta, Status naoenviada) {
+    }
 
     public int getId() {
         return id;
@@ -34,19 +67,19 @@ public class Call {
         this.dataAbertura = dataAbertura;
     }
 
-    public String getDecricao() {
-        return decricao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDecricao(String decricao) {
-        this.decricao = decricao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getStatus() {
+    public Enum getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Enum status) {
         this.status = status;
     }
 
@@ -55,14 +88,6 @@ public class Call {
     }
 
     public void setSolucao(String solucao) {
-        this.solucao = solucao;
-    }
-
-    public Call(int id, Date dataAbertura, String decricao, String status, String solucao) {
-        this.id = id;
-        this.dataAbertura = dataAbertura;
-        this.decricao = decricao;
-        this.status = status;
         this.solucao = solucao;
     }
 }
